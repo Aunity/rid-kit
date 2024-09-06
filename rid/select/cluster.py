@@ -97,10 +97,16 @@ def mk_dist(cv, angular_mask, weights):
 
 def mk_cluster(dist, distance_threshold):
     logger.info("clustering ...")
-    cluster = skcluster.AgglomerativeClustering(n_clusters=None,
-                                          linkage='average',
-                                          affinity='precomputed',
-                                          distance_threshold=distance_threshold)
+    try: # scikit-learn version lower 1.2
+        cluster = skcluster.AgglomerativeClustering(n_clusters=None,
+                                              linkage='average',
+                                              affinity='precomputed',
+                                              distance_threshold=distance_threshold)
+    except: # 
+        cluster = skcluster.AgglomerativeClustering(n_clusters=None,
+                                              linkage='average',
+                                              metric='precomputed',
+                                              distance_threshold=distance_threshold)
     cluster.fit(dist)
     return cluster.labels_
 
