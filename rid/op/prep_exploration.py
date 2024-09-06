@@ -106,7 +106,7 @@ class PrepExplore(OP):
         elif op_in["cv_config"]["mode"] == "distance":
             selected_atomid = op_in["cv_config"]["selected_atomid"]
         elif op_in["cv_config"]["mode"] == "custom":
-            cv_file = op_in["cv_file"]
+            cv_file = op_in["cv_config"]["cv_file"]
         if op_in["models"] is None:
             models = []
         else:

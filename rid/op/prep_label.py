@@ -158,7 +158,7 @@ class PrepLabel(OP):
                 selected_resid = op_in["cv_config"]["selected_resid"]
             elif "selected_atomid" in op_in["cv_config"]:
                 selected_atomid = op_in["cv_config"]["selected_atomid"]
-            cv_file = op_in["cv_file"]
+            cv_file = op_in["cv_config"]["cv_file"]
         
         #print("what is cv", cv_file)
         if op_in["label_config"]["method"] == "restrained":
